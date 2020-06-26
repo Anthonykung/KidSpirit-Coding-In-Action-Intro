@@ -9,7 +9,7 @@
 * ** Output: Numbers/strings
 * *********************************************************************/
 
-#include "resources.h"
+#include "resources.hpp"
 
 void wait(int sec) {
   struct timespec req, rem;
@@ -23,8 +23,18 @@ void clrstd() {
   }
 }
 
+void clearstd() {
+  for (int i = 0; i < 50; i++) {
+    cout << "\n" << endl;
+  }
+}
+
 void br() {
   cout << "\n";
+}
+
+int man() {
+
 }
 
 /*********************************************************************

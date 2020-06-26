@@ -17,19 +17,21 @@
 #include <time.h>  // time()
 #include <climits> // long max
 #include <fstream>
-#include "resources.h"  // helper program
+#include "resources.hpp"  // helper program
 
 using namespace std;
+
+int intro(int argc, char *argv[]);
+void restart();
 
 int main(int argc, char *argv[]) {
   int error = argcchecker(argc, argv);
   if (error != 0)
    return 1;  //  exit code for error
 
-  int srestart;
+  int exitCode;
   do {
-    intro(argc, argv);
-    srestart = restart();
-  } while (srestart);
+    exitCode = intro(argc, argv);
+  } while (exitCode);
   return 0;
 }
