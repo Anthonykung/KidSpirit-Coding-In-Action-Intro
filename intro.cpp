@@ -21,14 +21,10 @@
 
 using namespace std;
 
-int intro(int argc, char *argv[]);
+int intro();
 void restart();
 
-int main(int argc, char *argv[]) {
-  int error = argcchecker(argc, argv);
-  if (error != 0)
-   return 1;  //  exit code for error
-
+int main() {
   int exitCode;
   do {
     exitCode = intro(argc, argv);

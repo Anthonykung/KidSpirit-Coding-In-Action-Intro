@@ -16,8 +16,6 @@ using namespace std;
 void wait(int sec);
 void clrstd();
 void br();
-int argcchecker(int argc, char *argv[]);
-int argvchecker(int argc, char *argv[]);
 void ori();
 void red();
 void green();

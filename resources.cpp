@@ -23,63 +23,8 @@ void clrstd() {
   }
 }
 
-void clearstd() {
-  for (int i = 0; i < 50; i++) {
-    cout << "\n" << endl;
-  }
-}
-
 void br() {
   cout << "\n";
-}
-
-int man() {
-
-}
-
-/*********************************************************************
-** Function: argcchecker(int argc, char *argv[])
-** Description: Check argument counts
-** Parameters: None
-** Pre-Conditions: None
-** Post-Conditions: None
-***********************************************************************/
-int argcchecker(int argc, char *argv[]) {
-  int error = 0;
-  if (argc != 2) {
-    man();
-    return 1;  //  exit code for error
-  }
-  else {
-    clearstd();
-    if (argc == 2)
-      error = argvchecker(argc, argv);
-    return error;
-  }
-}
-
-/*********************************************************************
-** Function: argvchecker(int argc, char *argv[])
-** Description: Check argument value received
-** Parameters: None
-** Pre-Conditions: None
-** Post-Conditions: None
-***********************************************************************/
-int argvchecker(int argc, char *argv[]) {
-  for (int i = 1; i < argc; i += 2) {
-    if (strcmp(argv[i], "-start") == 0) {
-      cout << "\033[92mSynopsis OK\033[0m" << endl;
-    }
-    else if (strcmp(argv[i], "-help") == 0) {
-      help();
-      return 1;
-    }
-    else {
-      man();
-      return 1;
-    }
-  }
-  return 0;
 }
 
 void ori() {
