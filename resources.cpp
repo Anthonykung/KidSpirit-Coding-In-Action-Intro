@@ -10,11 +10,24 @@
 * *********************************************************************/
 
 #include "resources.hpp"
+#include "terminal.hpp"  // header file
 
-void wait(int sec) {
-  struct timespec req, rem;
+/*********************************************************************
+** Function: wait()
+** Description: Pause the program for x miliseconds
+** Parameters: int
+** Pre-Conditions: None
+** Post-Conditions: Pause program for x miliseconds
+***********************************************************************/
+int wait(unsigned long milisec) {
+  struct timespec req = { 0 };
+  time_t sec = (int)(milisec / 1000);
+  milisec = milisec - (sec * 1000);
   req.tv_sec = sec;
-  nanosleep(&req, &rem);
+  req.tv_nsec = milisec * 1000000L;
+  while (nanosleep(&req, &req) == -1)
+    continue;
+  return 1;
 }
 
 void clrstd() {
@@ -57,6 +70,70 @@ void cyan() {
 
 void orange() {
   cout << "\033[38;2;246;144;65m";
+}
+
+string Color::ori() {
+  return this->vori;
+}
+
+string Color::red() {
+  return this->vred;
+}
+
+string Color::green() {
+  return this->vgreen;
+}
+
+string Color::yellow() {
+  return this->vyellow;
+}
+
+string Color::blue() {
+  return this->vblue;
+}
+
+string Color::pink() {
+  return this->vpink;
+}
+
+string Color::cyan() {
+  return this->vcyan;
+}
+
+/*********************************************************************
+** Function: bye()
+** Description: Show bye text
+** Parameters: None
+** Pre-Conditions: None
+** Post-Conditions: None
+***********************************************************************/
+void bye() {
+  cout << " " << endl;
+  cout << "\t\033[96m██████╗ ██╗   ██╗███████╗\033[0m" << endl;
+  cout << "\t\033[96m██╔══██╗╚██╗ ██╔╝██╔════╝\033[0m" << endl;
+  cout << "\t\033[96m██████╔╝ ╚████╔╝ █████╗\033[0m" << endl;
+  cout << "\t\033[96m██╔══██╗  ╚██╔╝  ██╔══╝\033[0m" << endl;
+  cout << "\t\033[96m██████╔╝   ██║   ███████╗\033[0m" << endl;
+  cout << "\t\033[96m╚═════╝    ╚═╝   ╚══════╝\033[0m" << endl;
+  cout << " " << endl;
+}
+
+/*********************************************************************
+** Function: terror()
+** Description: Display text
+** Parameters: None
+** Pre-Conditions: None
+** Post-Conditions: None
+***********************************************************************/
+void terror() {
+  cout << " " << endl;
+  cout << "\t\033[91m███████╗██████╗ ██████╗  ██████╗ ██████╗ ██╗\033[0m" << endl;
+  cout << "\t\033[91m██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║\033[0m" << endl;
+  cout << "\t\033[91m█████╗  ██████╔╝██████╔╝██║   ██║██████╔╝██║\033[0m" << endl;
+  cout << "\t\033[91m██╔══╝  ██╔══██╗██╔══██╗██║   ██║██╔══██╗╚═╝\033[0m" << endl;
+  cout << "\t\033[91m███████╗██║  ██║██║  ██║╚██████╔╝██║  ██║██╗\033[0m" << endl;
+  cout << "\t\033[91m╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝\033[0m" << endl;
+  cout << " " << endl;
 }
 
 void kidspirit1() {
@@ -156,4 +233,18 @@ void twentytwenty() {
   cout << "\t           ██╔═══╝ ████╔╝██║██╔═══╝ ████╔╝██║" << endl;
   cout << "\t           ███████╗╚██████╔╝███████╗╚██████╔╝" << endl;
   cout << "\t           ╚══════╝ ╚═════╝ ╚══════╝ ╚═════╝ " << endl;
+}
+
+void star() {
+  cout << "\t▄ ██╗▄" << endl;
+  cout << "\t ████╗" << endl;
+  cout << "\t▀╚██╔▀" << endl;
+  cout << "\t  ╚═╝ " << endl;
+}
+
+void star2() {
+  cout << "\t▄ ██╗▄                                              ▄ ██╗▄" << endl;
+  cout << "\t ████╗                                               ████╗" << endl;
+  cout << "\t▀╚██╔▀                                              ▀╚██╔▀" << endl;
+  cout << "\t  ╚═╝                                                 ╚═╝ " << endl;
 }

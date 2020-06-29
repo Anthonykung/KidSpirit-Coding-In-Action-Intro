@@ -1,5 +1,5 @@
-#ifndef RESOURCES_H
-#define RESOURCES_H
+#ifndef RESOURCES_HPP
+#define RESOURCES_HPP
 
 #include <iostream>  // cout and cin
 #include <string>  // string
@@ -10,10 +10,11 @@
 #include <climits> // long max
 #include <termios.h>
 #include <fstream>
+#include "terminal.hpp"  // header file
 
 using namespace std;
 
-void wait(int sec);
+int wait(unsigned long milisec);
 void clrstd();
 void br();
 void ori();
@@ -24,8 +25,32 @@ void blue();
 void pink();
 void cyan();
 void orange();
+void bye();
+void terror();
+void star();
+void star2();
 
-class Custom {
+class Color {
+  private:
+  string vori = "\033[0m";
+  string vred = "\033[91m";
+  string vgreen = "\033[92m";
+  string vyellow = "\033[93m";
+  string vblue = "\033[94m";
+  string vpink = "\033[95m";
+  string vcyan = "\033[96m";
+
+  public:
+  string ori();
+  string red();
+  string green();
+  string yellow();
+  string blue();
+  string pink();
+  string cyan();
+};
+
+class Letter {
 public:
   void a();
   void b();
@@ -66,3 +91,5 @@ void kidspirit8();
 void kidspirit9();
 void summer();
 void twentytwenty();
+
+#endif

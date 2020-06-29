@@ -1,5 +1,5 @@
-CC = g++ -lncurses -std=c++11
-IAEXE = kidspirit
+CC = g++ -std=c++11
+IAEXE = kidspirit -lncurses 
 
 # Handle debug case
 DEBUG ?= 1
